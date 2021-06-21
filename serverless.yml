@@ -1,0 +1,32 @@
+service: gmail-archive
+
+frameworkVersion: '2'
+useDotenv: true
+
+provider:
+  name: aws
+  region: ${env:region, 'us-east-1'}
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  logRetentionInDays: 60
+  memorySize: 128
+  timeout: 120
+  environment:
+    username: ${env:username}
+    password: ${env:password}
+    bucket: ${env:bucket}
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 's3:PutObject'
+          Resource:
+            - !Sub 'arn:aws:s3:::${env:bucket}/*'
+
+functions:
+  rateHandler:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every 2 hours
+      - schedule: rate(2 hours)

@@ -1,0 +1,20 @@
+{
+  "name": "gmail_archive",
+  "version": "1.0.0",
+  "description": "Gmail archive to S3",
+  "author": "Bob Showalter",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "12.22.1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "strftime": "^0.10.0",
+    "yapople": "^0.4.3"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.932.0",
+    "dotenv": "^10.0.0"
+  }
+}
