@@ -3,6 +3,9 @@ service: gmail-archive
 frameworkVersion: '2'
 useDotenv: true
 
+plugins:
+  - serverless-plugin-aws-alerts
+
 provider:
   name: aws
   region: ${env:region, 'us-east-1'}
@@ -30,3 +33,14 @@ functions:
     events:
       # Invoke Lambda function every 2 hours
       - schedule: rate(2 hours)
+
+custom:
+  alerts:
+    topics:
+      alarm:
+        topic: "${self:service}-${opt:stage, 'dev'}-alerts-alarm"
+        notifications:
+          - protocol: email
+            endpoint: ${env:alert_email}
+    alarms:
+      - functionErrors

@@ -25,4 +25,5 @@ This creates a Lambda and schedules it to run every 2 hours. The lambda will:
 * * `password` - GMail password (use application-specific password if 2FA is
     enabled)
 * * `bucket` - S3 bucket name
+* * `alert_email` - Email address for CloudWatch alarms for lambda errors
 * Deploy with `serverless deploy`
