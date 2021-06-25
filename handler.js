@@ -20,8 +20,11 @@ const client = new Client({
 
 // process a batch of messages, returning number of messages processed
 const processBatch = async () => {
-  await client.connect()
-  let list = await client.list()
+  console.log('processBatch starting')
+  const result = await client.connect()
+  console.log('connect result:', result)
+  let list = result ? (await client.list()) : {}
+  console.log('list:', list)
   for (let msgNum in list) {
     const message = await client.retrieve(msgNum);
     const hash = MD5(message.toString())
@@ -34,14 +37,25 @@ const processBatch = async () => {
     }).promise()
   }
   await client.quit()
+  console.log('processBatch done')
   return Object.keys(list).length
 }
 
 // gmail hands out messages in batches, so process batches until no more
 // messages found
 module.exports.run = async (event, context) => {
-  let n;
-  do {
-    n = await processBatch()
-  } while (n > 0)
+  try {
+    let n;
+    while(1) {
+      n = await processBatch()
+      console.log(n, 'messages processed in batch')
+      if (n == 0) break
+      console.log('sleeping 2 secs before next check')
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      console.log('sleep finished')
+    }
+  }
+  catch(err) {
+    console.log('Error:', err)
+  }
 };
