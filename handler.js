@@ -26,7 +26,9 @@ const processBatch = async () => {
   let list = result ? (await client.list()) : {}
   console.log('list:', list)
   for (let msgNum in list) {
+    console.log('Retrieving', msgNum)
     const message = await client.retrieve(msgNum);
+    console.log('Message length', message.toString().length)
     const hash = MD5(message.toString())
     const path = `${strftime('%Y/%m/%d')}/${hash}`
     console.log('Uploading', path)
