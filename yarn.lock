@@ -218,9 +218,9 @@ xmlbuilder@~9.0.1:
   resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
   integrity sha1-Ey7mPS7FVlxVfiD0wi35rKaGsQ0=
 
-yapople@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/yapople/-/yapople-0.4.3.tgz#0847a9afed26dbcd4ddf686c2a59fadf9d4d8629"
-  integrity sha512-L9QTnRtiYI0/WkLGA63daBP/fHX9PVFcmmRSsL3xpfAYZSeUhynC32Qg4/8wO7Wi6ej5b4E1m/WCM8vI+ac0Ww==
+yapople@^0.4.8:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/yapople/-/yapople-0.4.8.tgz#1d72d20147fc487c005cd7de84e5b5852acbfec7"
+  integrity sha512-242BLg1ss+KsrOzCdilwZ8kGUFZJIjOTYleoqhKw1Fpxvz9pRSlfUNStkRz7FKSpInRa2DPEuZowJAYZq14e6Q==
   dependencies:
     mailparser "^0.5.1"
