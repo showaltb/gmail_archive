@@ -18,6 +18,7 @@ provider:
     username: ${env:username}
     password: ${env:password}
     bucket: ${env:bucket}
+    region: ${env:region, 'us-east-1'}
   iam:
     role:
       statements:

@@ -1,11 +1,13 @@
 'use strict';
 
 const { Client } = require('yapople')
-const AWS = require('aws-sdk')
 const strftime = require('strftime')
 const { MD5 } = require('crypto-js')
 
-const S3 = new AWS.S3()
+const { S3 } = require('@aws-sdk/client-s3')
+const { Upload } = require('@aws-sdk/lib-storage')
+
+const s3 = new S3({ region: process.env.region })
 
 const client = new Client({
   host: 'pop.gmail.com',
@@ -32,11 +34,22 @@ const processBatch = async () => {
     const hash = MD5(message.toString())
     const path = `${strftime('%Y/%m/%d')}/${hash}`
     console.log('Uploading', path)
-    await S3.putObject({
-      Bucket: process.env.bucket,
-      Key: path,
-      Body: message
-    }).promise()
+
+    const upload = new Upload({
+      client: s3,
+      params: {
+        Bucket: process.env.bucket,
+        Key: path,
+        Body: message
+      }
+    })
+    await upload.done()
+
+    // await S3.putObject({
+    //   Bucket: process.env.bucket,
+    //   Key: path,
+    //   Body: message
+    // }).promise()
   }
   await client.quit()
   console.log('processBatch done')
