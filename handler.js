@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 const Pop3Command = require('node-pop3')
 const { S3 } = require('@aws-sdk/client-s3')
@@ -45,16 +45,15 @@ const processBatch = async () => {
 // messages found
 module.exports.run = async (event, context) => {
   try {
-    let n;
+    let n
     while (1) {
       n = await processBatch()
       console.log(n, 'messages found')
-      if (n == 0) break
+      if (n === 0) break
       console.log('sleeping 2 secs before next check')
       await new Promise(resolve => setTimeout(resolve, 2000))
     }
-  }
-  catch (err) {
+  } catch (err) {
     console.log('Error:', err)
   }
-};
+}

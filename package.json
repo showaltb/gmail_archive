@@ -17,6 +17,7 @@
   "devDependencies": {
     "dotenv": "^10.0.0",
     "serverless": "^3.7.1",
-    "serverless-plugin-aws-alerts": "^1.7.3"
+    "serverless-plugin-aws-alerts": "^1.7.3",
+    "standard": "^16.0.4"
   }
 }
