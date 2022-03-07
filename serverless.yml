@@ -1,6 +1,6 @@
 service: gmail-archive
 
-frameworkVersion: '2'
+frameworkVersion: '3'
 useDotenv: true
 
 plugins:
@@ -9,8 +9,7 @@ plugins:
 provider:
   name: aws
   region: ${env:region, 'us-east-1'}
-  runtime: nodejs12.x
-  lambdaHashingVersion: 20201221
+  runtime: nodejs14.x
   logRetentionInDays: 60
   memorySize: 256
   timeout: 120
