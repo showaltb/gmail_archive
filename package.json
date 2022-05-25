@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.48.0",
@@ -15,9 +15,9 @@
     "node-pop3": "^0.8.0"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.1",
     "serverless": "^3.7.1",
     "serverless-plugin-aws-alerts": "^1.7.3",
-    "standard": "^16.0.4"
+    "standard": "^17.0.0"
   }
 }
