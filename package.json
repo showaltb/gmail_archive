@@ -16,7 +16,9 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.1",
+    "esbuild": "^0.14.39",
     "serverless": "^3.7.1",
+    "serverless-esbuild": "^1.28.0",
     "serverless-plugin-aws-alerts": "^1.7.3",
     "standard": "^17.0.0"
   }
