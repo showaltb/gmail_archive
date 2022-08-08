@@ -23,6 +23,11 @@ const processBatch = async () => {
 
   const list = await pop3.UIDL()
   for (const [msgNumber, uid] of list) {
+    // handle message that cannot be retrieved for some reason
+    // if (uid === 'GmailId1827c40e8c023dac') {
+    //   await pop3.command('DELE', msgNumber)
+    //   continue
+    // }
     const [, messageStream] = await pop3.command('RETR', msgNumber)
     const path = `${DateTime.now().toFormat('yyyy/MM/dd')}/${uid}`
     console.log('Uploading', path)
