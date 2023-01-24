@@ -10,7 +10,7 @@ plugins:
 provider:
   name: aws
   region: ${env:region, 'us-east-1'}
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   logRetentionInDays: 60
   memorySize: 256
   timeout: 120
@@ -19,6 +19,7 @@ provider:
     password: ${env:password}
     bucket: ${env:bucket}
     region: ${env:region, 'us-east-1'}
+    NODE_OPTIONS: --enable-source-maps
   iam:
     role:
       statements:
@@ -45,3 +46,5 @@ custom:
             endpoint: ${env:alert_email}
     alarms:
       - functionErrors
+  esbuild:
+    sourcemap: true
