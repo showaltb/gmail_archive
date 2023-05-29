@@ -15,6 +15,7 @@ const processBatch = async () => {
     password: process.env.password,
     host: 'pop.gmail.com',
     port: 995,
+    timeout: 30000,
     tls: true,
     tlsOptions: {
       rejectUnauthorized: false
@@ -42,7 +43,6 @@ const processBatch = async () => {
       })
       await upload.done()
     }
-
     return list.length
   } finally {
     await pop3.QUIT()
