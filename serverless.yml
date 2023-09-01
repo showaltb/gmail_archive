@@ -6,6 +6,7 @@ useDotenv: true
 plugins:
   - serverless-esbuild
   - serverless-plugin-aws-alerts
+  - serverless-prune-plugin
 
 provider:
   name: aws
@@ -46,5 +47,8 @@ custom:
             endpoint: ${env:alert_email}
     alarms:
       - functionErrors
+  prune:
+    automatic: true
+    number: 3
   esbuild:
     sourcemap: true
