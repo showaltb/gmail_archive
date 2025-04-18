@@ -9,38 +9,38 @@ importers:
   .:
     dependencies:
       '@aws-sdk/client-s3':
-        specifier: ^3.48.0
+        specifier: ^3.787.0
         version: 3.787.0
       '@aws-sdk/lib-storage':
-        specifier: ^3.48.0
+        specifier: ^3.787.0
         version: 3.787.0(@aws-sdk/client-s3@3.787.0)
       luxon:
-        specifier: ^2.3.0
+        specifier: ^2.5.2
         version: 2.5.2
       node-pop3:
         specifier: ^0.8.0
         version: 0.8.0
     devDependencies:
       dotenv:
-        specifier: ^16.0.1
+        specifier: ^16.5.0
         version: 16.5.0
       esbuild:
-        specifier: ^0.16.11
+        specifier: ^0.16.17
         version: 0.16.17
       serverless:
-        specifier: ^3.26.0
+        specifier: ^3.40.0
         version: 3.40.0
       serverless-esbuild:
-        specifier: ^1.34.0
+        specifier: ^1.55.0
         version: 1.55.0(esbuild@0.16.17)
       serverless-plugin-aws-alerts:
-        specifier: ^1.7.3
+        specifier: ^1.7.5
         version: 1.7.5(serverless@3.40.0)
       serverless-prune-plugin:
-        specifier: ^2.0.2
+        specifier: ^2.1.0
         version: 2.1.0(serverless@3.40.0)
       standard:
-        specifier: ^17.0.0
+        specifier: ^17.1.2
         version: 17.1.2
 
 packages:
