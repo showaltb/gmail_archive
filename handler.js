@@ -1,9 +1,7 @@
-'use strict'
-
-const Pop3Command = require('node-pop3')
-const { S3 } = require('@aws-sdk/client-s3')
-const { Upload } = require('@aws-sdk/lib-storage')
-const { DateTime } = require('luxon')
+import Pop3Command from 'node-pop3'
+import { S3 } from '@aws-sdk/client-s3'
+import { Upload } from '@aws-sdk/lib-storage'
+import { DateTime } from 'luxon'
 
 const s3 = new S3({ region: process.env.region })
 
@@ -51,7 +49,7 @@ const processBatch = async () => {
 
 // gmail hands out messages in batches, so process batches until no more
 // messages found
-module.exports.run = async (event, context) => {
+export async function run (event, context) {
   let n
   while (1) {
     n = await processBatch()

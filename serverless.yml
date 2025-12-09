@@ -52,4 +52,17 @@ custom:
     automatic: true
     number: 3
   esbuild:
+    # magic to build ESM target for lambda
+    # see https://github.com/evanw/esbuild/issues/1921#issuecomment-1152887672
+    # NOTE: "serverless invoke local" won't work with generated handler.mjs yet :(
+    # see https://github.com/serverless/serverless/issues/11308
+    minify: true
+    platform: node
+    target: esnext
     sourcemap: true
+    sourcesContent: false
+    format: esm
+    outExtension:
+      .js: .mjs
+    banner:
+      js: import { createRequire } from 'module';const require = createRequire(import.meta.url);
