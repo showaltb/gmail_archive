@@ -27,9 +27,6 @@ importers:
       esbuild:
         specifier: ^0.25.2
         version: 0.25.2
-      serverless:
-        specifier: ^3.40.0
-        version: 3.40.0
       serverless-esbuild:
         specifier: ^1.55.0
         version: 1.55.0(esbuild@0.25.2)

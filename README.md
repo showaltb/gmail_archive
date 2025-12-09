@@ -12,7 +12,7 @@ This creates a Lambda and schedules it to run every 2 hours. The lambda will:
 
 ## Prerequisites
 
-- Serverless Framework v3
+- [osls](https://www.npmjs.com/package/osls) (Open Source Serverless Framework)
 - AWS CLI and profile "bob"
 - S3 bucket for storing messages
 
