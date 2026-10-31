@@ -12,7 +12,7 @@ This creates a Lambda and schedules it to run every 2 hours. The lambda will:
 
 ## Prerequisites
 
-- [osls](https://www.npmjs.com/package/osls) (Open Source Serverless Framework)
+- [osls](https://www.npmjs.com/package/osls) (Open Source Serverless Framework, v3)
 - AWS CLI and profile "bob"
 - S3 bucket for storing messages
 
@@ -24,4 +24,5 @@ This creates a Lambda and schedules it to run every 2 hours. The lambda will:
     enabled)
 - - `bucket` - S3 bucket name
 - - `alert_email` - Email address for CloudWatch alarms for lambda errors
-- Deploy with `serverless deploy`
+- Run `pnpm install`
+- Deploy with `pnpm exec osls deploy`

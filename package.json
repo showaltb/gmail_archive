@@ -19,6 +19,7 @@
     "@types/node": "^24.10.2",
     "dotenv": "^17.2.3",
     "esbuild": "^0.27.1",
+    "osls": "^3.79.0",
     "serverless-esbuild": "^1.56.1",
     "serverless-plugin-aws-alerts": "^1.7.5",
     "serverless-prune-plugin": "^2.1.0",
